@@ -139,7 +139,8 @@ input::-webkit-inner-spin-button {
           animation: gradient 10s infinite linear;
   background-size: 300%;
 }
-.main-page .main-page__record {
+
+.main-page__record {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 6px;
   padding: 2px 6px;
@@ -518,6 +519,10 @@ input::-webkit-inner-spin-button {
     padding-top: 0;
     padding-bottom: 0;
     min-height: 250px;
+    transform: translateY(-12%);
+  }
+  .main-page__container {
+    transform: translateY(-15%);
   }
   .main-page__container h1 {
     font-size: 6.5rem;
@@ -574,14 +579,20 @@ input::-webkit-inner-spin-button {
     margin: 0;
     background-color: transparent;
   }
-}
-@media (max-width: 380px) {
-  .play-page__crosses {
-    bottom: 8%;
+  .answer-container.active {
+    transform: translate(-50%, -100%);
+  }
+  .main-page__record {
+    bottom: 10%;
   }
   .play-page__counter {
-    top: 8%;
+    top: 5%;
   }
+  .play-page__crosses {
+    bottom: 15%;
+  }
+}
+@media (max-width: 380px) {
   .gameover__container {
     min-height: 97%;
     width: 92%;
