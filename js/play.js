@@ -5,5 +5,5 @@ playBtn.addEventListener("click", () => {
 	playPage.style.background = backgroundsArray[Math.floor(Math.random() * 10)];
 	answer = fractionInitialize(document.querySelector(".play-page__container--first .play-page__task"));
 	nextQuestion = document.querySelector(".next-question-btn");
-	nextQuestion.addEventListener("click", showNextQuestion);
+	nextQuestion.addEventListener("click", checkQuestion);
 });

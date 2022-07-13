@@ -22,20 +22,28 @@ const playPageContainer = `<div class="play-page__container play-page__container
 // intialization
 let answer;
 // initialization
-nextQuestion.addEventListener("click", showNextQuestion);
+nextQuestion.addEventListener("click", checkQuestion);
 window.addEventListener("keydown", (e) => {
-	if (e.code === 'Enter') showNextQuestion();
+	if (e.code === 'Enter') checkQuestion();
 });
-function showNextQuestion() {
-	nextQuestion.removeEventListener('click', showNextQuestion)
+function checkQuestion() {
+	nextQuestion.removeEventListener('click', checkQuestion)
 	nextQuestion = document.querySelector(".play-page__container--second .next-question-btn");
-	nextQuestion.addEventListener("click", showNextQuestion);
+	nextQuestion.addEventListener("click", checkQuestion);
 	initializeTask();
+}
+// Pushing 'ok' button
+answerBtn.addEventListener('click', showNextQuestion)
+function showNextQuestion() {
+	answerContainer.parentNode.classList.remove('active');
 	if (mistakes >= 3) {
-		setTimeout(showGameOver, 1000)
-		return;
+		setTimeout(() => answerContainer.innerHTML = '', 600)
+		return setTimeout(showGameOver, 600);
 	}
-   setTimeout(() => {
+
+
+	setTimeout(() => {
+		answerContainer.innerHTML = '';
       let firstQuestion = document.querySelector(".play-page__container--first");
       let secondQuestion = document.querySelector(".play-page__container--second");
       let randomBcg = backgroundsArray[Math.floor(Math.random() * 10)]; // Рандомный задний вон
@@ -55,4 +63,3 @@ function showNextQuestion() {
       }, 600);
    }, 700);
 }
-

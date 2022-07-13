@@ -2,20 +2,26 @@ function sum(arr) {
    return arr.reduce((total, item) => total + item, 0);
 }
 function checkFraction() {
+	let rightAnswerHTML = '<div class="task__fraction">';
    let numeratorInput = document.querySelector("input[name='numerator']");
-   if (numeratorInput) {
-      numeratorInput = parseInt(numeratorInput.value);
-   }
-
+   
    let denominatorInput = document.querySelector("input[name='denominator']");
    if (denominatorInput) {
       denominatorInput = parseInt(denominatorInput.value);
    }
-
+	
    let intInput = document.querySelector("input[name='int']");
    if (intInput) {
       intInput = parseInt(intInput.value);
+		rightAnswerHTML += `<div class="fraction__int">${answer.int}</div>`
+		
    }
+	if (numeratorInput) {
+      numeratorInput = parseInt(numeratorInput.value);
+		rightAnswerHTML += `<div class="fraction__numerator">${answer.num}</div>
+		<div class="fraction__denominator">${answer.denom}</div>`
+   }
+	rightAnswerHTML += '</div>'
 
 	if (!answer.num) {
 		if (intInput === answer.int) {
@@ -30,7 +36,7 @@ function checkFraction() {
 	if (answer.num === numeratorInput && answer.denom === denominatorInput && answer.int === intInput) {
 		return rightAnswer();
 	}
-	return wrongAnswer();
+	return wrongAnswer(rightAnswerHTML);
 }
 
 function fractionInitialize(question) {

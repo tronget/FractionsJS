@@ -13,7 +13,7 @@ homeBtn.addEventListener('click', () => {
 playAgainBtn.addEventListener('click', () => {
 	resetGame();
 	nextQuestion = document.querySelector(".next-question-btn:nth-child(3)");
-	nextQuestion.addEventListener("click", showNextQuestion);
+	nextQuestion.addEventListener("click", checkQuestion);
 	gameOver.style.transform = 'translateY(-100vh)'
 	answer = fractionInitialize(document.querySelector(".play-page__container--first .play-page__task"));
 })
